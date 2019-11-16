@@ -2,41 +2,29 @@ package utils;
 
 import com.opencsv.CSVReader;
 import com.opencsv.CSVWriter;
+import com.opencsv.exceptions.CsvException;
 import exceptions.DbException;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 
 /**
  *
- * @author Alexander Ferenets (Istamendil) <ist.kazan@gmail.com>
  */
 public class DB {
 
-    private final static String extension = "db";
-    private final static String path = "/tmp/";
 
-    private static void checkDb(String db) throws DbException {
-        File f = new File(getDbFullPath(db));
-        if (!f.exists() || !f.isFile() || !f.canRead() || !f.canWrite()) {
-            throw new DbException();
-        }
-    }
+    private final static String path = "users.csv";
 
-    private static String getDbFullPath(String db) {
-        String fullName = db + "." + extension;
-        String fullPath = path + fullName;
-        return fullPath;
-    }
 
     public static void addEntry(String db, String[] data) throws DbException {
-        checkDb(db);
+
         try {
-            CSVWriter writer = new CSVWriter(new FileWriter(getDbFullPath(db),true));
-            writer.writeNext(data);
+            File f = new File("/home/tanya/IdeaProjects/shelter_v3/user.csv");
+            FileWriter writer = new FileWriter(f,true);
+
+            writer.write("\n"+data[0]+","+data[1]+","+data[2]);
+            writer.flush();
             writer.close();
         } catch (IOException ex) {
             throw new DbException();
@@ -44,13 +32,13 @@ public class DB {
     }
 
     public static List<String[]> getAllEntries(String db) throws DbException {
-        checkDb(db);
         try {
-            CSVReader reader = new CSVReader(new FileReader(getDbFullPath(db)));
+            CSVReader reader = new CSVReader(new FileReader(path));
             return reader.readAll();
         } catch (IOException ex) {
             throw new DbException();
         }
     }
+    }
 
-}
+

@@ -7,9 +7,28 @@
     <servlet-name>registration</servlet-name>
     <servlet-class>servlets.Registration</servlet-class>
   </servlet>
-
   <servlet-mapping>
     <servlet-name>registration</servlet-name>
     <url-pattern>/reg</url-pattern>
   </servlet-mapping>
+
+  <servlet>
+    <servlet-name>index</servlet-name>
+    <servlet-class>servlets.Index</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>index</servlet-name>
+    <url-pattern>/shelter</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>auth</servlet-name>
+    <servlet-class>servlets.Authentication</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>auth</servlet-name>
+    <url-pattern>/auth</url-pattern>
+  </servlet-mapping>
+
+
 </web-app>

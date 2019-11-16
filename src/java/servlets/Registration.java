@@ -1,9 +1,11 @@
-import java.io.IOException;
+package servlets;
 
+import java.io.IOException;
 import entities.User;
 import exceptions.DbException;
 import exceptions.DuplicateEntryException;
 import repositories.UserRepositories;
+import utils.Errors;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
@@ -19,36 +21,37 @@ public class Registration extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
-        String content = "";
 
-        if (
-                req.getParameter("user_name") != null &&
-                req.getParameter("user_email") != null &&
-                req.getParameter("user_password") != null &&
-                req.getParameter("user_password2") != null
-
-        ) {
-            String name = req.getParameter("user_name");
-            String email = req.getParameter("user_email");
-            String password = req.getParameter("user_password");
-            String password2 = req.getParameter("user_password2");
+        Errors errors = new Errors();
 
 
+        req.setAttribute("status_email", errors.isEmail(req.getParameter("user_email")));
+        req.setAttribute("status_password", errors.isCorrectPasswords("user_password", "user_password2"));
+
+        String name = req.getParameter("user_name");
+        String email = req.getParameter("user_email");
+        String password = req.getParameter("user_password");
+        String password2 = req.getParameter("user_password2");
+
+
+        User user = new User(name, email, password);
+        {
 
             try {
-                User user = new User(name,email,password);
                 UserRepositories.add(user);
-                resp.sendRedirect(req.getRequestURI() + "?status=1");
                 return;
-            } catch (DbException ex) {
-                req.setAttribute("message", "Error with DB has been occured.");
-            } catch (DuplicateEntryException ex) {
-                req.setAttribute("message", "User with such email already exists.");
+            } catch (DbException | DuplicateEntryException ex) {
+                ex.printStackTrace();
             }
-        } else {
-            req.setAttribute("message", "You have to fill all form fields.");
         }
 
-        getServletContext().getRequestDispatcher("/WEB-INF/index.jsp").forward(req, resp);
+
+        getServletContext().getRequestDispatcher("reg.jsp").forward(req, resp);
+
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        req.getRequestDispatcher("reg.jsp").forward(req, resp);
     }
 }

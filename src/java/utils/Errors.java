@@ -5,22 +5,41 @@ import java.util.regex.Pattern;
 
 public class Errors {
 
-    int errors = 0;
 
-
-        public boolean isEmail(String email){
-            if (email.equals("")){
-                
-            }
+    public String isEmail(String email) {
+        if (email.equals(" ")) {
+            return null;
+        } else {
+            String ans = null;
             Pattern pattern = Pattern.compile("\\w+([\\.-]?\\w+)*@\\w+([\\.-]?\\w+)*\\.\\w{2,4}");
             Matcher matcher = pattern.matcher(email);
             boolean isEmail = matcher.matches();
-            return isEmail;
+
+            if (isEmail) {
+                ans = "true";
+            }
+            if (!isEmail) {
+                ans = "false";
+            }
+            return ans;
         }
+    }
 
-        public boolean isCorrectPasswords(String password1, String password2){
-            return password1.equals(password2);
+
+    public String isCorrectPasswords(String password1, String password2)
+    {
+        String answ;
+
+        if(password1.equals(password2) & password1.length()>=6){
+            answ = "correct";
         }
+        else if (password1.length()<6){
+            answ = "pass must > 6";
+        }
+        else {
+            answ = "pass not eq";
+        }
+        return answ;
 
-
+    }
 }

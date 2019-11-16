@@ -17,7 +17,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,500,600,700,700i|Montserrat:300,400,500,600,700" rel="stylesheet">
 
     <!-- Bootstrap CSS File -->
-    <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="lib/bootstrap/css/bootstrap.css" rel="stylesheet">
 
     <!-- Libraries CSS Files -->
     <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
@@ -29,18 +29,9 @@
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
 
-    <!-- =======================================================
-      Theme Name: Rapid
-      Theme URL: https://bootstrapmade.com/rapid-multipurpose-bootstrap-business-template/
-      Author: BootstrapMade.com
-      License: https://bootstrapmade.com/license/
-    ======================================================= -->
 </head>
 
 <body>
-<!--==========================
-Header
-============================-->
 <header id="header">
 
 
@@ -57,8 +48,8 @@ Header
                 <li class="active"><a href="#intro">Home</a></li>
                 <li><a href="#about">About Us</a></li>
                 <li><a href="#pets">Our pets</a></li>
-                <li><a href="reg.jsp">Sign up</a></li>
-                <li><a href="#footer">Sign in</a></li>
+                <li><a href="reg">Regist</a></li>
+                <li><a href="auth">Auth</a></li>
             </ul>
         </nav><!-- .main-nav -->
 
@@ -150,7 +141,7 @@ Header
 
                 <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px" >
                     <div class="box">
-                        <img src="img/oo-p2.jpg"style="width:27em; height:17em;" alt="" >
+                        <img src="img/oo-p2.jpg" style="width:27em; height:17em;" alt="" >
                     </div>
                 </div>
                 <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px">
@@ -205,13 +196,13 @@ Header
 
                 <div class="col-lg-6">
                     <div class="why-us-content">
-                        <p>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</p>
-                        <p>
+                        <h4>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</h4>
+                        <h3>
                             Explicabo repellendus quia labore. Non optio quo ea ut ratione et quaerat. Porro facilis deleniti porro consequatur
                             et temporibus. Labore est odio.
 
                             Odio omnis saepe qui. Veniam eaque ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..
-                        </p>
+                        </h3>
 
                     </div>
 
