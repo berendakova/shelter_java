@@ -34,6 +34,7 @@ public class Authentication extends HttpServlet {
         if(status_email_password.equals("true")){
             HttpSession httpSession = req.getSession(true);
             httpSession.setAttribute("user_email",email);
+
             req.setAttribute("log",true);
 
         }
