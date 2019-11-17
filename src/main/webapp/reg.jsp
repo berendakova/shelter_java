@@ -37,7 +37,7 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="index.jsp">About Us</a></li>
-                <li><a href="index.jsp">Our pets</a></li>
+                <li><a href="our_pets">Our pets</a></li>
                 <li class="active"><a href="reg.jsp">Registr</a></li>
                 <li><a href="auth">Auth</a></li>
             </ul>
@@ -71,11 +71,15 @@
         <label for="password2">Password replay:</label>
         <input type="password" id="password2" name="user_password2">
 
-       <c:if test="${status_password != null}">
-            <c:if test="${status_password.equals('false')}">
-                <p style="  color: red">${status_password}</p>
-            </c:if>
-        </c:if>
+
+        <c:if test="${!(status_password == null)}">
+    <c:if test="${status_password.equals('true')}">
+        <p class="test-success"> OK</p>
+    </c:if>
+    <c:if test="${!status_password.equals('true')}">
+        <p class="test-danger">${status_password}</p>
+    </c:if>
+
 
 </fieldset>
 

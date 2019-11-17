@@ -47,7 +47,7 @@
             <ul>
                 <li class="active"><a href="#intro">Home</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="#pets">Our pets</a></li>
+                <li><a href="our_pets.jsp">Our pets</a></li>
                 <li><a href="reg">Regist</a></li>
                 <li><a href="auth">Auth</a></li>
             </ul>
@@ -113,7 +113,7 @@
 
 
     <!--==========================
-      Services Section
+    Our Pets
     ============================-->
     <section id="pets" class="section-bg">
         <div class="container">
@@ -168,8 +168,7 @@
                         <br>
                     </div>
                 </div>
-
-                <button type="button" class="btn btn-outline-secondary" style="text-align: center">Look at all</button>
+                <a href="our_pets" class="btn-get-started scrollto">Look at all</a>
             </div>
 
         </div>

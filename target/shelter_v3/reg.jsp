@@ -37,7 +37,7 @@
             <ul>
                 <li><a href="index.jsp">Home</a></li>
                 <li><a href="index.jsp">About Us</a></li>
-                <li><a href="index.jsp">Our pets</a></li>
+                <li><a href="our_pets">Our pets</a></li>
                 <li class="active"><a href="reg.jsp">Registr</a></li>
                 <li><a href="auth">Auth</a></li>
             </ul>
