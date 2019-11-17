@@ -34,9 +34,11 @@ public class Authentication extends HttpServlet {
         if(status_email_password.equals("true")){
             HttpSession httpSession = req.getSession(true);
             httpSession.setAttribute("user_email",email);
-
             req.setAttribute("log",true);
-
+        }
+        else{
+            req.setAttribute("log",false);
+            req.setAttribute("sms","can't find your profile, please, sign in");
         }
 
         getServletContext().getRequestDispatcher("auth.jsp").forward(req, resp);
