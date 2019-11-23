@@ -1,3 +1,4 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -32,6 +33,7 @@
 </head>
 
 <body>
+
 <header id="header">
 
 
@@ -45,20 +47,24 @@
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <li class="active"><a href="#intro">Home</a></li>
+                <li><a href="index.jsp">Home</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="our_pets.jsp">Our pets</a></li>
-                <li><a href="reg">Regist</a></li>
+                <li><a href="our_pets">Our pets</a></li>
+                <li ><a href="reg">Registr</a></li>
                 <li><a href="auth">Auth</a></li>
+                <%--     <%
+                         out.print("<li><a>" + request.getAttribute("user_name") + "</a></li>");
+                     %>
+                     <p>${user_name}</p>--%>
+                <c:if test="${log}">
+                    <li><a href="#my"> Hello, ${user_name}</a></li>
+                </c:if>
             </ul>
-        </nav><!-- .main-nav -->
-
+        </nav>
     </div>
-</header><!-- #header -->
+</header>
 
-<!--==========================
-  Intro Section
-============================-->
+
 <section id="intro" class="clearfix">
     <div class="container d-flex h-100">
         <div class="row justify-content-center align-self-center">
@@ -182,7 +188,7 @@
 
             <header class="section-header">
                 <h3>How much have we done?</h3>
-                <p>We are proud to be able to help so many people and animals find each other.</p>
+                <p style="size: 30px">We are proud to be able to help so many people and animals find each other.</p>
             </header>
 
             <div class="row">
@@ -195,12 +201,9 @@
 
                 <div class="col-lg-6">
                     <div class="why-us-content">
-                        <h4>Molestiae omnis numquam corrupti omnis itaque. Voluptatum quidem impedit. Odio dolorum exercitationem est error omnis repudiandae ad dolorum sit.</h4>
-                        <h3>
-                            Explicabo repellendus quia labore. Non optio quo ea ut ratione et quaerat. Porro facilis deleniti porro consequatur
-                            et temporibus. Labore est odio.
-
-                            Odio omnis saepe qui. Veniam eaque ipsum. Ea quia voluptatum quis explicabo sed nihil repellat..
+                        <h3>Love the animal, appreciate it, walk with it, feed it, take care of it, scratch it behind the ear, kiss it on the nose, take care of its health, do not let it freeze
+                            in the autumn evening, do not let it get lost in the winter morning, but let it enjoy its short life - to smell the sea, swim in the sunset light, find out what bugs,
+                            spiders are, give chat with other animals - give him life, give a chance, and then he will become your closest friend that you cannot find among people
                         </h3>
 
                     </div>

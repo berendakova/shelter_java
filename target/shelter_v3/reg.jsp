@@ -18,6 +18,12 @@
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
 
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/js/bootstrap-select.min.js"></script>
+
     <!-- Main Stylesheet File -->
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -35,8 +41,7 @@
 
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
-                <li><a href="index.jsp">Home</a></li>
-                <li><a href="index.jsp">About Us</a></li>
+                <li><a href="shelter">Home</a></li>
                 <li><a href="our_pets">Our pets</a></li>
                 <li class="active"><a href="reg.jsp">Registr</a></li>
                 <li><a href="auth">Auth</a></li>
@@ -49,7 +54,7 @@
 
     <h1>Sign In</h1>
 
-    <fieldset>
+    <fieldset >
         <label for="name">Name:</label>
         <input type="text" id="name" name="user_name" placeholder="Ivan Petrov">
 
@@ -71,13 +76,26 @@
         <label for="password2">Password replay:</label>
         <input type="password" id="password2" name="user_password2">
 
-       <c:if test="${status_password != null}">
-            <c:if test="${status_password.equals('false')}">
-                <p style="  color: red">${status_password}</p>
+
+        <c:if test="${!(status_password == null)}">
+            <c:if test="${status_password.equals('true')}">
+                <p class="test-success"> OK</p>
+            </c:if>
+            <c:if test="${!status_password.equals('true')}">
+                <p class="test-danger">${status_password}</p>
             </c:if>
         </c:if>
 
-</fieldset>
+        <select class="selectpicker" name="listRole" multiple data-live-search="true" style="margin-bottom: 100px">
+           <option name="role1" type="role1">role1</option>
+            <option name="role2" type="role2">role2</option>
+            <option name="role3" type="role3">role3</option>
+        </select>
+        <br>
+        <br>
+
+
+    </fieldset>
 
 
     <button type="submit">Sign In</button>

@@ -16,7 +16,8 @@ public class UserRepositories {
                         {
                              user.getUser_name(),
                              user.getUser_email(),
-                             user.getUser_password()
+                             user.getUser_password(),
+                             user.getUser_role()
                         }
         );
     }

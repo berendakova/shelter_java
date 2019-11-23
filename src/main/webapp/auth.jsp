@@ -36,16 +36,21 @@
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
                 <li><a href="index.jsp">Home</a></li>
-                <li><a href="index.jsp">About Us</a></li>
                 <li><a href="our_pets">Our pets</a></li>
                 <li ><a href="reg">Registr</a></li>
-                <li class ="active"><a href="auth">Auth</a></li>
+                <li><a href="auth">Auth</a></li>
+                <%--     <%
+                         out.print("<li><a>" + request.getAttribute("user_name") + "</a></li>");
+                     %>
+                     <p>${user_name}</p>--%>
+                <c:if test="${log}">
+                    <li><a href="#my"> Hello, ${user_name}</a></li>
+                </c:if>
             </ul>
         </nav>
-
     </div>
 </header>
-<form action="" method="post" style="margin-top: 150px">
+<form action="/auth" method="post" style="margin-top: 150px">
 
     <h1>Sign Up</h1>
 
@@ -53,27 +58,19 @@
 
         <label for="mail">Email:</label>
         <input type="email" id="mail" name="user_email" placeholder="example@example.com">
-     <%--   <c:if test="${status_email != null}">
-            <c:if test="${status_email.equals('true')}">
-                <p>OK </p>
-            </c:if>
-            <c:if test="${!status_email.equals('true')}">
-                <p style="color: red">NOT CORRECT EMAIL</p>
-            </c:if>
-        </c:if>--%>
+
 
 
         <label for="password1">Password:</label>
         <input type="password" id="password1" name="user_password">
 
-
-<%--
-        <c:if test="${status_password != null}">
-            <c:if test="${status_password.equals('false')}">
-                <p style="  color: red">${status_password}</p>
-            </c:if>
+        <c:if test="${not empty sms}">
+            <p>${sms}</p>
         </c:if>
---%>
+
+
+        <p><input name="remember" type="radio" value="remember"> remember me</p>
+
 
     </fieldset>
 

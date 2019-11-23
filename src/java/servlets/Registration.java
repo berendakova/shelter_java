@@ -32,9 +32,13 @@ public class Registration extends HttpServlet {
         String email = req.getParameter("user_email");
         String password = req.getParameter("user_password");
         String password2 = req.getParameter("user_password2");
+        String[] roles = req.getParameterValues("listRole");
+        for (int i = 0; i < roles.length; i++) {
+            System.out.println(roles[i]);
+        }
 
 
-        User user = new User(name, email, password);
+        User user = new User(name, email, password,roles);
         {
 
             try {
@@ -47,11 +51,14 @@ public class Registration extends HttpServlet {
 
 
         getServletContext().getRequestDispatcher("reg.jsp").forward(req, resp);
+        /*resp.sendRedirect("index.jsp");*/
+
 
     }
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.getRequestDispatcher("reg.jsp").forward(req, resp);
+        /*resp.sendRedirect("index.jsp");*/
     }
 }

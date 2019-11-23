@@ -47,20 +47,16 @@ public class Errors {
 
     }
 
-    public String existEmailInBd(String email, String password) throws FileNotFoundException {
-        String answ = "";
-        //обратиться к бд и узнать есть ли такой емаил, если да, проверить на соответствие паролю
+    public boolean  existEmailInBd(String email, String password) throws FileNotFoundException {
+        System.out.println("123");
         UserReader userReader = new UserReader();
-        List<User> users = userReader.readUser("users.csv");
-        //list<users>
+        List<User> users = userReader.readUser("/home/tanya/IdeaProjects/shelter_v3/user.csv");
         for (int i = 0; i < users.size(); i++) {
+            System.out.println(users.get(i).getUser_email());
             if((users.get(i).getUser_email().equals(email)) && (users.get(i).getUser_password().equals(password))){
-                answ = "true";
-            }
-            else{
-                answ = "not correct password or email";
+                return true;
             }
         }
-        return answ;
+        return false;
     }
 }
