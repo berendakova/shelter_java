@@ -76,7 +76,7 @@
         <label for="password2">Password replay:</label>
         <input type="password" id="password2" name="user_password2">
 
-
+<%--
         <c:if test="${!(status_password == null)}">
             <c:if test="${status_password.equals('true')}">
                 <p class="test-success"> OK</p>
@@ -84,7 +84,7 @@
             <c:if test="${!status_password.equals('true')}">
                 <p class="test-danger">${status_password}</p>
             </c:if>
-        </c:if>
+        </c:if>--%>
 
         <select class="selectpicker" name="listRole" multiple data-live-search="true" style="margin-bottom: 100px">
            <option name="role1" type="role1">role1</option>

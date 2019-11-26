@@ -31,7 +31,7 @@ public class UserReader {
             roles[0] = items[3];
             roles[1] = items[4];
             roles[2] = items[5];
-            users.add(new User(name, email, password,roles));
+            users.add(new User(1,name, email, password));
         }
         return users;
     }

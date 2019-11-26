@@ -51,7 +51,7 @@
                         <p class="description">Jessy was born in 2012, when she was a pappy, one family took her, so she spend all time this them, but some day they left her, now she live with us.
                             Jessy is kind, she loves children.</p>
 
-                        <button type="button">Take home</button>
+                        <li><a href="/pet/">Our pets</a></li>
 
                     </div>
 

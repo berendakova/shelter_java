@@ -1,4 +1,5 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <header id="header">
 
 
@@ -13,16 +14,18 @@
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
                 <li><a href="index.jsp">Home</a></li>
-                <li><a href="index.jsp">About Us</a></li>
+                <li><a href="#about">About Us</a></li>
                 <li><a href="our_pets">Our pets</a></li>
-                <li ><a href="reg">Registr</a></li>
-                <li><a href="auth">Auth</a></li>
-           <%--     <%
-                    out.print("<li><a>" + request.getAttribute("user_name") + "</a></li>");
-                %>
-                <p>${user_name}</p>--%>
-               <c:if test="${log}">
-                <li><a href="#my"> Hello, ${user_name}</a></li>
+                <%--     <%
+                         out.print("<li><a>" + request.getAttribute("user_name") + "</a></li>");
+                     %>
+                     <p>${user_name}</p>--%>
+                <c:if test="${!log || log == null}">
+                    <li ><a href="reg">Registr</a></li>
+                    <li><a href="auth">Auth</a></li>
+                </c:if>
+                <c:if test="${log}">
+                    <li><a href="#my"> Hello, ${user_name}</a></li>
                 </c:if>
             </ul>
         </nav>
