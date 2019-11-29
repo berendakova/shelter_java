@@ -3,26 +3,34 @@ package entities;
 public class Pet {
     private int id;
     private String name;
-    private boolean sex;
     private int age;
     private String img;
-    private String text;
+    private String description;
+    private int status;
 
-    public Pet(int id, String name, boolean sex, int age, String img, String text) {
+    public Pet(int id, String name, int age,  String description,String img, int status) {
         this.id = id;
         this.name = name;
-        this.sex = sex;
         this.age = age;
         this.img = img;
-        this.text = text;
+        this.description = description;
+        this.status = status;
     }
 
-    public String getText() {
-        return text;
+    public int isStatus() {
+        return status;
     }
 
-    public void setText(String text) {
-        this.text = text;
+    public void setStatus(int status) {
+        this.status = status;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public void setImg(String img) {
@@ -39,14 +47,6 @@ public class Pet {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public boolean isSex() {
-        return sex;
-    }
-
-    public void setSex(boolean sex) {
-        this.sex = sex;
     }
 
     public int getAge() {

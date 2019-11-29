@@ -20,7 +20,7 @@
 
                 <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
                     <div class="about-img">
-                        <img src="img/oo_p13.jpg" style="width:27em; height:17em;" alt="">
+                        <img src="../img/oo_p13.jpg" style="width:27em; height:17em;" alt="">
                     </div>
                 </div>
 

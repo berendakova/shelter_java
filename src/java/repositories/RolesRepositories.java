@@ -1,9 +1,11 @@
 package repositories;
 
 import entities.User;
+import entities.UserRole;
 import exceptions.DbException;
 import exceptions.DuplicateEntryException;
 import utils.ConnectionDB;
+
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -27,6 +29,20 @@ public class RolesRepositories {
             System.out.println(resultSet.getInt("name"));
 
         }*/
+
+    }
+
+    public UserRole getRolesByName(String name) throws SQLException {
+        PreparedStatement ps = connection.prepareStatement("SELECT * FROM roles WHERE name = ?");
+        ps.setString(1, name);
+        ResultSet rs = ps.executeQuery();
+        UserRole role = null;
+        while (rs.next()) {
+            role = new UserRole(
+                    rs.getInt("id"),
+                    rs.getString("name"));
+        }
+        return role;
 
     }
     public  void addRoles(String name) throws SQLException {

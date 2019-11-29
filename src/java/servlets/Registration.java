@@ -2,14 +2,18 @@ package servlets;
 
 import java.io.IOException;
 import entities.User;
+import entities.UserRole;
 import exceptions.DbException;
 import exceptions.DuplicateEntryException;
 import org.apache.commons.codec.digest.DigestUtils;
+import repositories.RolesRepositories;
 import repositories.UserRepositories;
+import repositories.UserRolesRepository;
 import utils.Errors;
 
 import javax.servlet.ServletException;
 import javax.servlet.ServletRegistration;
+import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,6 +23,7 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+@WebServlet("/reg")
 public class Registration extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -40,15 +45,29 @@ public class Registration extends HttpServlet {
 
 
         try {
+            UserRolesRepository userRolesRepository = new UserRolesRepository();
             UserRepositories userRepositories= new UserRepositories();
             userRepositories.addUser(name,email,password);
+            User user = userRepositories.getUserByLogin(email);
+
+            RolesRepositories rolesRepositories = new RolesRepositories();
+           /* UserRole role = rolesRepositories.getRolesByName()*/
+
+            for (int i = 0; i < roles.length; i++) {
+                rolesRepositories.addRoles(roles[i]);
+                userRolesRepository.addUserRole(user.getId_user(), rolesRepositories.getRolesByName(roles[i]).getId() );
+            }
+
+
+
+
             req.setAttribute("reg",true);
         } catch (ClassNotFoundException | SQLException e) {
             req.setAttribute("reg",false);
             e.printStackTrace();
         }
 
-        getServletContext().getRequestDispatcher("/reg.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/reg.jsp").forward(req, resp);
 
 
 /*
@@ -77,7 +96,7 @@ public class Registration extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.getRequestDispatcher("reg.jsp").forward(req, resp);
+        req.getRequestDispatcher("/WEB-INF/reg.jsp").forward(req, resp);
         /*resp.sendRedirect("index.jsp");*/
     }
 }
