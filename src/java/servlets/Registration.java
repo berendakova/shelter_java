@@ -36,6 +36,7 @@ public class Registration extends HttpServlet {
         req.setAttribute("status_password", errors.isCorrectPasswords("user_password", "user_password2"));*/
 
         String name = req.getParameter("user_name");
+
         String email = req.getParameter("user_email");
         String password = req.getParameter("user_password");
         String password2 = req.getParameter("user_password2");
@@ -47,6 +48,10 @@ public class Registration extends HttpServlet {
         try {
             UserRolesRepository userRolesRepository = new UserRolesRepository();
             UserRepositories userRepositories= new UserRepositories();
+            if(userRepositories.getUserByLogin(email)!=null){
+                getServletContext().getRequestDispatcher("/WEB-INF/reg.jsp").forward(req, resp);
+                return;
+            }
             userRepositories.addUser(name,email,password);
             User user = userRepositories.getUserByLogin(email);
 
@@ -67,7 +72,6 @@ public class Registration extends HttpServlet {
             e.printStackTrace();
         }
 
-        getServletContext().getRequestDispatcher("/WEB-INF/reg.jsp").forward(req, resp);
 
 
 /*

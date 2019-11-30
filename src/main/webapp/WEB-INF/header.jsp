@@ -25,7 +25,8 @@
                     <li><a href="auth">Auth</a></li>
                 </c:if>
                 <c:if test="${log}">
-                    <li><a href="#my"> Hello, ${user_name}</a></li>
+                    <li><a href="/profile"> Hello, ${user_name}</a></li>
+                    <li><a href="/logOut">Log Out</a></li>
                 </c:if>
             </ul>
         </nav>

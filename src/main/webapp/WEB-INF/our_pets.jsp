@@ -1,3 +1,5 @@
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,123 +37,39 @@
             <header class="section-header" style="margin-top: 60px">
                 <h3>Our pets</h3>
                 <p>Here you can see our animals, affectionate dogs, beloved cats</p>
+                <c:if test="${user.is_superuser==1}">
+                    <a href="/add_pet/${pet.getId()}"><h4>Add pet</h4></a>
+                </c:if>
             </header>
 
             <div class="row">
 
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="about-img">
-                        <img src="../img/oo_p13.jpg" style="width:27em; height:17em;" alt="">
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="box">
-                        <h4 class="title"><a href="">Jessy</a></h4>
-                        <p class="description">Jessy was born in 2012, when she was a pappy, one family took her, so she spend all time this them, but some day they left her, now she live with us.
-                            Jessy is kind, she loves children.</p>
-
-                        <button type="button">Take home</button>
-
+                <c:forEach var="pet" items="${listPet}">
+                    <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s" style="margin-bottom: 30px">
+                        <div class="about-img">
+                            <img src="${pet.getImg()}" style="width:27em; height:17em;" alt="">
+                        </div>
                     </div>
 
-                </div>
+                    <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
+                        <div class="box">
+                            <h4 class="title"><a href="">${pet.getName()}</a></h4>
+                            <p class="description">${pet.getDescription()}</p>
 
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px" >
-                    <div class="box">
-                        <img src="../img/oo-p2.jpg" style="width:27em; height:17em;" alt="" >
+
+                            <a href="/our_pets/${pet.getId()}"><h4>TAKE HOME</h4></a>
+                            <c:if test="${user.is_superuser==1}">
+                                <a href="/update_pet/${pet.getId()}"><h4>Update pet</h4></a>
+                                <a href="/delete_pet/${pet.getId()}"><h4>Delete pet</h4></a>
+                            </c:if>
+
+                        </div>
                     </div>
-                </div>
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px">
-                    <div class="box">
-                        <h4 class="title"><a href="">Simka</a></h4>
-                        <p class="description">Meet our beauty Simka. She has a difficult fate - she was found on the street,
-                            with a wounded paw, but now she is completely healthy. Simka is a kind, affectionate, tender cat. She is about 4 years old. All vaccinations are done.</p>
-                    </div>
-                    <button type="button">Take home</button>
 
-                </div>
-
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px" >
-                    <div class="box">
-                        <img src="../img/our_pets1.jpg" style="width:27em; height:17em;" alt="" >
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px">
-                    <div class="box">
-                        <h4 class="title"><a href="">Saharok</a></h4>
-                        <p class="description">Meet our beauty Simka. She has a difficult fate - she was found on the street,
-                            with a wounded paw, but now she is completely healthy. Simka is a kind, affectionate, tender cat. She is about 4 years old. All vaccinations are done.</p>
-                    </div>
-                    <button type="button">Take home</button>
-
-                </div>
-
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px" >
-                    <div class="box">
-                        <img src="../img/our_pets3.jpg" style="width:27em; height:17em;" alt="" >
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px">
-                    <div class="box">
-                        <h4 class="title"><a href="">Liska</a></h4>
-                        <p class="description">Meet our beauty Simka. She has a difficult fate - she was found on the street,
-                            with a wounded paw, but now she is completely healthy. Simka is a kind, affectionate, tender cat. She is about 4 years old. All vaccinations are done.</p>
-                    </div>
-                    <button type="button">Take home</button>
-
-                </div>
-
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px" >
-                    <div class="box">
-                        <img src="../img/our_pets2.jpg" style="width:27em; height:17em;" alt="" >
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px">
-                    <div class="box">
-                        <h4 class="title"><a href="">Varusha</a></h4>
-                        <p class="description">Meet our beauty Simka. She has a difficult fate - she was found on the street,
-                            with a wounded paw, but now she is completely healthy. Simka is a kind, affectionate, tender cat. She is about 4 years old. All vaccinations are done.</p>
-                    </div>
-                    <button type="button">Take home</button>
-
-                </div>
+                </c:forEach>
 
 
 
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px" >
-                    <div class="box">
-                        <img src="../img/our_pets4.jpg" style="width:27em; height:17em;" alt="" >
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px">
-                    <div class="box">
-                        <h4 class="title"><a href="">Mike</a></h4>
-                        <p class="description">Meet our beauty Simka. She has a difficult fate - she was found on the street,
-                            with a wounded paw, but now she is completely healthy. Simka is a kind, affectionate, tender cat. She is about 4 years old. All vaccinations are done.</p>
-                    </div>
-                    <button type="button">Take home</button>
-
-                </div>
-
-                <div class="col-md-6 col-lg-6 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s" style="margin-top: 30px">
-                    <div class="box">
-                        <img src="../img/oo-p8.jpg" style="width:27em; height:17em;" alt="">
-                        <br>
-                        <br>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s" style="margin-top: 30px" >
-                    <div class="box">
-                        <h4 class="title"><a href="">Nemo</a></h4>
-                        <p class="description">Nemo is our smallest friend. He is only 1 year old, but he is already accustomed to the tray, vaccinated and sterilized. Playful, smart and very beautiful.
-                        </p>
-                        <button type="button">Take home</button>
-
-                        <br>
-                        <br>
-                    </div>
-                </div>
             </div>
 
         </div>

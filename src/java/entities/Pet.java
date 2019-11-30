@@ -7,14 +7,52 @@ public class Pet {
     private String img;
     private String description;
     private int status;
+    private String sex;
+    private String breed;
+    private String disease;
 
-    public Pet(int id, String name, int age,  String description,String img, int status) {
+    public Pet(int id, String name, int age,  String description,String img, int status, String sex, String breed, String disease) {
         this.id = id;
         this.name = name;
         this.age = age;
         this.img = img;
         this.description = description;
         this.status = status;
+        this.sex = sex;
+        this.breed = breed;
+        this. disease = disease;
+    }
+
+    public Pet() {
+
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getBreed() {
+        return breed;
+    }
+
+    public void setBreed(String breed) {
+        this.breed = breed;
+    }
+
+    public String getDisease() {
+        return disease;
+    }
+
+    public void setDisease(String disease) {
+        this.disease = disease;
     }
 
     public int isStatus() {
