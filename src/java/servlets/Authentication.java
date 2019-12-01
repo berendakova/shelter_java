@@ -3,8 +3,6 @@ package servlets;
 import entities.User;
 import org.apache.commons.codec.digest.DigestUtils;
 import repositories.UserRepositories;
-import utils.Errors;
-import utils.UserReader;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +12,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
 
 @WebServlet("/auth")
@@ -41,12 +38,13 @@ public class Authentication extends HttpServlet {
         try {
             User userFromDB = userRepositories.getUserByLogin(email);
             if(userFromDB != null){
+                System.out.println(userFromDB.getIsSuperuser());
                 String md5password = DigestUtils.md5Hex(password);
-                if(userFromDB.getUser_password().equals(md5password)){
+                if(userFromDB.getUserPassword().equals(md5password)){
 
                     session.setAttribute("log",true);
                     session.setAttribute("current_user", userFromDB);
-                    session.setAttribute("user_name",userFromDB.getUser_name());
+                    session.setAttribute("user_name",userFromDB.getUserName());
                 }
 
             }
@@ -69,18 +67,6 @@ public class Authentication extends HttpServlet {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

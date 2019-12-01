@@ -20,16 +20,18 @@ public class PetRepositories {
     }
 
 
-    public  void addPet(String name, int age, String img, String description, int status, String sex, String breed, String disease) throws SQLException {
-        PreparedStatement petPrepared= connection.prepareStatement("INSERT INTO pets (name ,description, age,img,status,sex,breed,disease ) values ( ?,?,?,?,?,?,?,?)");
-        petPrepared.setString(2,description);
-        petPrepared.setInt(3,age);
-        petPrepared.setString(4,img);
-        petPrepared.setInt(5,status);
-        petPrepared.setString(6,sex);
-        petPrepared.setString(7,breed);
-        petPrepared.setString(8,disease);
-        System.out.println( petPrepared.executeUpdate());
+    public  int addPet(Pet pet) throws SQLException {
+        PreparedStatement petPrepared= connection.prepareStatement("INSERT INTO pets (name ,description, age,img,status,sex,breed,disease,user_id ) values ( ?,?,?,?,?,?,?,?,?)");
+        petPrepared.setString(1,pet.getName());
+        petPrepared.setString(2,pet.getDescription());
+        petPrepared.setString(3,pet.getAge());
+        petPrepared.setString(4,pet.getImg());
+        petPrepared.setInt(5,pet.getStatus());
+        petPrepared.setString(6,pet.getSex());
+        petPrepared.setString(7,pet.getBreed());
+        petPrepared.setString(8,pet.getDisease());
+        petPrepared.setInt(9,0);
+        return petPrepared.executeUpdate();
 
 
     }
@@ -44,7 +46,7 @@ public class PetRepositories {
 // public Pet(int id, String name, int age,  String description,String img)
                     rs.getInt("id_pet"),
                     rs.getString("name"),
-                    rs.getInt("age"),
+                    rs.getString("age"),
                     rs.getString("description"),
                     rs.getString("img"),
                     rs.getInt("status"),
@@ -65,7 +67,7 @@ public class PetRepositories {
             pet = new Pet(
                     rs.getInt("id_pet"),
                     rs.getString("name"),
-                    rs.getInt("age"),
+                    rs.getString("age"),
                     rs.getString("description"),
                     rs.getString("img"),
                     rs.getInt("status"),
@@ -86,7 +88,7 @@ public class PetRepositories {
             pet = new Pet(
                     rs.getInt("id_pet"),
                     rs.getString("name"),
-                    rs.getInt("age"),
+                    rs.getString("age"),
                     rs.getString("description"),
                     rs.getString("img"),
                     rs.getInt("status"),
@@ -125,7 +127,7 @@ public class PetRepositories {
             pet.setId(resultSet.getInt("id_pet"));
             pet.setDescription(resultSet.getString("description"));
             pet.setName(resultSet.getString("name"));
-            pet.setAge(resultSet.getInt("age"));
+            pet.setAge(resultSet.getString("age"));
             pet.setBreed(resultSet.getString("breed"));
             pet.setImg(resultSet.getString("img"));
             pets.add(pet);
@@ -138,5 +140,23 @@ public class PetRepositories {
         preparedStatement.setInt(1, id_user);
         preparedStatement.setInt(2, idPet);
         preparedStatement.executeUpdate();
+    }
+
+    public void deletePet(int idPet) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from pets where id_pet = ?");
+        preparedStatement.setInt(1, idPet);
+        preparedStatement.executeUpdate();
+    }
+
+    public void updatePet(Pet pet) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("update pet set name = ?, description = ?, age = ? , img = ?, sex = ?, breed = ? , disease = ? where id = ?");
+        preparedStatement.setString(1,pet.getName());
+        preparedStatement.setString(2,pet.getDescription());
+        preparedStatement.setString(3,pet.getAge());
+        preparedStatement.setString(4,pet.getSex());
+        preparedStatement.setString(5,pet.getBreed());
+        preparedStatement.setString(6,pet.getDescription());
+        preparedStatement.setInt(7,pet.getId());
+
     }
 }

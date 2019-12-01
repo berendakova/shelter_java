@@ -1,57 +1,70 @@
 package entities;
 
 public class User {
-    private String user_name;
-    private String user_email;
-    private String user_password;
-    private String[] user_role;
-    private int id_user;
+    private String userName;
+    private String userEmail;
+    private String userPassword;
+    private String[] userRoles;
+    private int idUser;
+private String isSuperuser;
 
-    public User(int id_user, String user_name, String user_email, String user_password) {
-        this.id_user = id_user;
-        this.user_name = user_name;
-        this.user_email = user_email;
-        this.user_password = user_password;
-
+    public User() {
     }
 
-    public int getId_user() {
-        return id_user;
+    public User(int idUser, String userName, String userEmail, String userPassword,String isSuperuser) {
+        this.idUser = idUser;
+        this.userName = userName;
+        this.userEmail = userEmail;
+        this.userPassword = userPassword;
+        this.isSuperuser = isSuperuser;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public String getIsSuperuser() {
+        return isSuperuser;
     }
 
-    public String[] getUser_role() {
-        return user_role;
+    public void setIsSuperuser(String isSuperuser) {
+
+        this.isSuperuser = isSuperuser;
     }
 
-    public void setUser_role(String[] user_role) {
-        this.user_role = user_role;
+    public int getIdUser() {
+        return idUser;
     }
 
-    public String getUser_name() {
-        return user_name;
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+
+    public String[] getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(String[] userRoles) {
+        this.userRoles = userRoles;
+    }
+
+    public String getUserName() {
+        return userName;
     }
 
     public void setUser_name(String user_name) {
-        this.user_name = user_name;
+        this.userName = user_name;
     }
 
-    public String getUser_email() {
-        return user_email;
+    public String getUserEmail() {
+        return userEmail;
     }
 
-    public void setUser_email(String user_email) {
-        this.user_email = user_email;
+    public void setUserEmail(String userEmail) {
+        this.userEmail = userEmail;
     }
 
-    public String getUser_password() {
-        return user_password;
+    public String getUserPassword() {
+        return userPassword;
     }
 
-    public void setUser_password(String user_password) {
-        this.user_password = user_password;
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 }

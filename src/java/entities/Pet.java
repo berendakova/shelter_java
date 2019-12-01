@@ -3,7 +3,7 @@ package entities;
 public class Pet {
     private int id;
     private String name;
-    private int age;
+    private String age;
     private String img;
     private String description;
     private int status;
@@ -11,7 +11,7 @@ public class Pet {
     private String breed;
     private String disease;
 
-    public Pet(int id, String name, int age,  String description,String img, int status, String sex, String breed, String disease) {
+    public Pet(int id, String name, String age,  String description,String img, int status, String sex, String breed, String disease) {
         this.id = id;
         this.name = name;
         this.age = age;
@@ -87,11 +87,11 @@ public class Pet {
         this.name = name;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
 
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 

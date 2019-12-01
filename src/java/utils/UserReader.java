@@ -21,6 +21,7 @@ public class UserReader {
         String email;
         String password;
         String[] roles = new String[3];
+        String isSuperuser;
 
         while (scanner.hasNextLine()) {
             input = scanner.nextLine();
@@ -31,7 +32,8 @@ public class UserReader {
             roles[0] = items[3];
             roles[1] = items[4];
             roles[2] = items[5];
-            users.add(new User(1,name, email, password));
+            isSuperuser = items[6];
+            users.add(new User(1,name, email, password,isSuperuser));
         }
         return users;
     }

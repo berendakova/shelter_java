@@ -4,13 +4,11 @@ import entities.User;
 import exceptions.DbException;
 import exceptions.DuplicateEntryException;
 import utils.ConnectionDB;
-import utils.DB;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 public class UserRepositories {
     public  Connection connection = (Connection) ConnectionDB.connect();
@@ -22,7 +20,7 @@ public class UserRepositories {
 
         Connection connection = (Connection) ConnectionDB.connect();
         UserRepositories userRepository = new UserRepositories();
-        userRepository.addUser(user.getUser_name(),user.getUser_email(),user.getUser_password());
+        userRepository.addUser(user.getUserName(),user.getUserEmail(),user.getUserPassword());
         PreparedStatement user_check = connection.prepareStatement("SELECT * FROM users");
         ResultSet resultSet = user_check.executeQuery();
         while(resultSet.next()){
@@ -52,7 +50,8 @@ public class UserRepositories {
                     rs.getInt("id"),
                     rs.getString("name"),
                     rs.getString("email"),
-                    rs.getString("password"));
+                    rs.getString("password"),
+                    rs.getString("is_superuser"));
         }
         return user;
 
@@ -68,7 +67,9 @@ public class UserRepositories {
                     rs.getInt("id"),
                     rs.getString("name"),
                     rs.getString("email"),
-                    rs.getString("password"));
+                    rs.getString("password"),
+                    rs.getString("is_superuser"));
+                /*    rs.getInt("is_superuser");*/
         }
         return user;
 
@@ -82,7 +83,8 @@ public class UserRepositories {
                 resultSet.getInt("id"),
                 resultSet.getString("name"),
                 resultSet.getString("email"),
-                resultSet.getString("password")
+                resultSet.getString("password"),
+                resultSet.getString("is_superuser")
         );
     }
 

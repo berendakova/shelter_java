@@ -2,26 +2,17 @@ package servlets;
 
 import java.io.IOException;
 import entities.User;
-import entities.UserRole;
-import exceptions.DbException;
-import exceptions.DuplicateEntryException;
 import org.apache.commons.codec.digest.DigestUtils;
 import repositories.RolesRepositories;
 import repositories.UserRepositories;
 import repositories.UserRolesRepository;
-import utils.Errors;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletRegistration;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import java.io.PrintWriter;
 import java.sql.SQLException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 @WebServlet("/reg")
 public class Registration extends HttpServlet {
@@ -60,7 +51,7 @@ public class Registration extends HttpServlet {
 
             for (int i = 0; i < roles.length; i++) {
                 rolesRepositories.addRoles(roles[i]);
-                userRolesRepository.addUserRole(user.getId_user(), rolesRepositories.getRolesByName(roles[i]).getId() );
+                userRolesRepository.addUserRole(user.getIdUser(), rolesRepositories.getRolesByName(roles[i]).getId() );
             }
 
 
@@ -93,7 +84,7 @@ public class Registration extends HttpServlet {
         }
 */
 
-        /*resp.sendRedirect("index.jsp");*/
+        resp.sendRedirect("/shelter");
 
 
     }

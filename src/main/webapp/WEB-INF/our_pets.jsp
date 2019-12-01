@@ -37,8 +37,8 @@
             <header class="section-header" style="margin-top: 60px">
                 <h3>Our pets</h3>
                 <p>Here you can see our animals, affectionate dogs, beloved cats</p>
-                <c:if test="${user.is_superuser==1}">
-                    <a href="/add_pet/${pet.getId()}"><h4>Add pet</h4></a>
+                <c:if test="${user == 1}">
+                    <a href="/add_pet"><h4>Add pet</h4></a>
                 </c:if>
             </header>
 
@@ -58,7 +58,7 @@
 
 
                             <a href="/our_pets/${pet.getId()}"><h4>TAKE HOME</h4></a>
-                            <c:if test="${user.is_superuser==1}">
+                            <c:if test="${user == 1}">
                                 <a href="/update_pet/${pet.getId()}"><h4>Update pet</h4></a>
                                 <a href="/delete_pet/${pet.getId()}"><h4>Delete pet</h4></a>
                             </c:if>
@@ -76,13 +76,6 @@
     </section><!-- #services -->
 
 </main>
-
-
-
-
-
-
-
 
 
 <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>

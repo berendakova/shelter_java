@@ -10,7 +10,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
@@ -37,9 +36,10 @@ public class PersonServlet extends HttpServlet {
         if(user != null){
             try {
                 PetRepositories petRepositories = new PetRepositories();
-                List<Pet> pets = petRepositories.getPetByUserId(user.getId_user());
+                List<Pet> pets = petRepositories.getPetByUserId(user.getIdUser());
                 req.setAttribute("pets",pets);
-            req.setAttribute("user_name",user.getUser_name());
+                req.setAttribute("user_name",user.getUserName());
+                System.out.println("PERSON SERVLET + "+user.getIsSuperuser());
             } catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }

@@ -52,8 +52,8 @@ public class Errors {
         UserReader userReader = new UserReader();
         List<User> users = userReader.readUser("/home/tanya/IdeaProjects/shelter_v3/user.csv");
         for (int i = 0; i < users.size(); i++) {
-            System.out.println(users.get(i).getUser_email());
-            if((users.get(i).getUser_email().equals(email)) && (users.get(i).getUser_password().equals(password))){
+            System.out.println(users.get(i).getUserEmail());
+            if((users.get(i).getUserEmail().equals(email)) && (users.get(i).getUserPassword().equals(password))){
                 return true;
             }
         }

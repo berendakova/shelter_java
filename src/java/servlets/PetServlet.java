@@ -28,7 +28,7 @@ public class PetServlet extends HttpServlet {
         req.setAttribute("id_pet",idPet);
         try {
             petRepositories.updatePetStatus(idPet, 1);
-            petRepositories.setPetUser(idPet, user.getId_user());
+            petRepositories.setPetUser(idPet, user.getIdUser());
             Pet pet = petRepositories.getPetById(idPet);
             if (pet != null) {
                 req.setAttribute("pet", pet);
