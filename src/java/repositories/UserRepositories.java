@@ -71,7 +71,10 @@ public class UserRepositories {
                     rs.getString("is_superuser"));
                 /*    rs.getInt("is_superuser");*/
         }
-        return user;
+        if (user != null){
+            return user;
+        }
+        return null;
 
     }
 

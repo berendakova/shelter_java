@@ -25,7 +25,7 @@ public class PetServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int idPet = gePetId(req.getRequestURI());
         User user = (User) req.getSession().getAttribute("current_user");
-        req.setAttribute("id_pet",idPet);
+        req.setAttribute("id_pet", idPet);
         try {
             petRepositories.updatePetStatus(idPet, 1);
             petRepositories.setPetUser(idPet, user.getIdUser());
@@ -46,7 +46,7 @@ public class PetServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-        if(session!=null&&session.getAttribute("current_user")!=null){
+        if (session != null && session.getAttribute("current_user") != null) {
             req.setAttribute("is_ok", true);
         }
         try {

@@ -46,79 +46,16 @@ public class Authentication extends HttpServlet {
                     session.setAttribute("current_user", userFromDB);
                     session.setAttribute("user_name",userFromDB.getUserName());
                 }
-
+                resp.sendRedirect("/shelter");
             }
             else{
                 session.setAttribute("log",false);
                 resp.sendRedirect("/reg");
             }
-        /*    System.out.println(2);*/
-/*
-            doGet(req, resp);*/
-/*
-            req.getRequestDispatcher("index.jsp").forward(req, resp);
-*/
-        } catch (SQLException e) {
+    } catch (SQLException e) {
             e.printStackTrace();
         }
-        resp.sendRedirect("/shelter");
-  /*req.getRequestDispatcher("index.jsp").forward(req, resp);*/
- /*       doGet(req, resp);*/
-
 
     }
 
-
-
-/*        String name ="";
-        String email = "";
-        String password = "";
-        String remember = "";
-        Errors error = new Errors();
-        if ((req.getParameter("user_email") != null) && (req.getParameter("user_password") != null)) {
-            email = req.getParameter("user_email");
-            password = req.getParameter("user_password");
-            remember = req.getParameter("remember");
-        }
-
-        boolean status_email_password = error.existEmailInBd(email, password);
-
-        req.setAttribute("status_email_password", status_email_password);
-
-        System.out.println("status_email_password = "+ status_email_password);
-        if (status_email_password) {
-            UserReader userReader = new UserReader();
-            List<User> users = userReader.readUser("/home/tanya/IdeaProjects/shelter_v3/user.csv");
-            for (int i = 0; i < users.size(); i++) {
-                if((users.get(i).getUser_email().equals(email)) && (users.get(i).getUser_password().equals(DigestUtils.md5Hex(password)))){
-                    name = users.get(i).getUser_name();
-                }
-            }
-
-
-            HttpSession httpSession = req.getSession(true);
-            httpSession.setAttribute("user_email", email);
-            System.out.println(email);
-
-
-            req.setAttribute("log", true);
-            req.setAttribute("user_name", name);
-
-//            if (req.getAttribute("log") != null) {
-//
-//                if (req.getAttribute("log").equals("true")) {
-//                    req.getRequestDispatcher("/index.jsp").forward(req, resp);
-//
-//                }
-//            }
-
-     getServletContext().getRequestDispatcher("/index.jsp").forward(req, resp);
-//              resp.sendRedirect("/shelter");
-        } else {
-
-            req.setAttribute("log", false);
-            req.setAttribute("sms", "can't find your profile, please, sign in");
-        }
-
-    }*/
 }

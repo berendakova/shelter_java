@@ -33,13 +33,13 @@ public class PersonServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         User user = (User) req.getSession().getAttribute("current_user");
-        if(user != null){
+        if (user != null) {
             try {
                 PetRepositories petRepositories = new PetRepositories();
                 List<Pet> pets = petRepositories.getPetByUserId(user.getIdUser());
-                req.setAttribute("pets",pets);
-                req.setAttribute("user_name",user.getUserName());
-                System.out.println("PERSON SERVLET + "+user.getIsSuperuser());
+                req.setAttribute("pets", pets);
+                req.setAttribute("user_name", user.getUserName());
+                System.out.println("PERSON SERVLET + " + user.getIsSuperuser());
             } catch (ClassNotFoundException | SQLException e) {
                 e.printStackTrace();
             }

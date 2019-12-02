@@ -15,7 +15,7 @@
             <ul>
                 <li><a href="/shelter">Home</a></li>
                 <li><a href="#about">About Us</a></li>
-                <li><a href="/our_pets">Our pets</a></li>
+
                 <%--     <%
                          out.print("<li><a>" + request.getAttribute("user_name") + "</a></li>");
                      %>
@@ -25,6 +25,8 @@
                     <li><a href="auth">Auth</a></li>
                 </c:if>
                 <c:if test="${log}">
+                    <li><a href="/our_pets">Our pets</a></li>
+
                     <li><a href="/profile"> Hello, ${user_name}</a></li>
                     <li><a href="/logOut">Log Out</a></li>
                 </c:if>

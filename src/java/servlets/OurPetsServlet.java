@@ -18,11 +18,7 @@ import java.util.List;
 public class OurPetsServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
-
         getServletContext().getRequestDispatcher("/WEB-INF/our_pets.jsp").forward(req, resp);
-
-
     }
 
     @Override
@@ -33,7 +29,6 @@ public class OurPetsServlet extends HttpServlet {
         PetRepositories petRepositories = null;
         try {
             petRepositories = new PetRepositories();
-            /*System.out.println(listPets.size());*/
             listPets = petRepositories.getByStatus(0);
             for (int i = 0; i < listPets.size(); i++) {
                 System.out.println(listPets.get(i).getName());
@@ -42,12 +37,8 @@ public class OurPetsServlet extends HttpServlet {
             e.printStackTrace();
         }
 
-        req.setAttribute("listPet",listPets);
-        req.setAttribute("user",user.getIsSuperuser());
-
-        /*
-        System.out.println("SU"+user.getIsSuperuser());
-        req.setAttribute("current_user",user.getIsSuperuser());*/
+        req.setAttribute("listPet", listPets);
+        req.setAttribute("user", user.getIsSuperuser());
         req.getRequestDispatcher("/WEB-INF/our_pets.jsp").forward(req, resp);
     }
 }

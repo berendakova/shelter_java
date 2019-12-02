@@ -32,16 +32,15 @@ public class LogOutServlet extends HttpServlet {
         if (session.getAttribute("current_user") != null) {
             User current_user = (User) session.getAttribute("current_user");
 
-            session.setAttribute("log",false);
+            session.setAttribute("log", false);
             session.setAttribute("current_user", null);
-            session.setAttribute("user_name",null);
+            session.setAttribute("user_name", null);
 
-            req.setAttribute("log",false);
+            req.setAttribute("log", false);
 
 
         }
         resp.sendRedirect("/shelter");
-
 
 
     }

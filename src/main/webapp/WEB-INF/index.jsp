@@ -144,7 +144,7 @@
                         <br>
                     </div>
                 </div>
-                <a href="our_pets" class="btn-get-started scrollto">Look at all</a>
+                <a href="/reg   " class="btn-get-started scrollto">Look at all</a>
             </div>
 
         </div>

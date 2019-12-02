@@ -24,11 +24,11 @@ public class DeletePetServlet extends HttpServlet {
         User user = (User) req.getSession().getAttribute("user");
         int idPet = gePetId(req.getRequestURI());
 
-            try {
-                petRepositories.deletePet(idPet);
-                resp.sendRedirect("/our_pets");
-            } catch (SQLException e) {
-                e.printStackTrace();
+        try {
+            petRepositories.deletePet(idPet);
+            resp.sendRedirect("/our_petsф");
+        } catch (SQLException e) {
+            e.printStackTrace();
 
         }
     }
@@ -37,9 +37,9 @@ public class DeletePetServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         User user = (User) req.getSession().getAttribute("user");
         int idPet = gePetId(req.getRequestURI());
-        if(user.getIsSuperuser().equals("0")){
+        if (user.getIsSuperuser().equals("0")) {
             resp.sendRedirect("/shelter");
-        }else {
+        } else {
             try {
                 petRepositories.deletePet(idPet);
             } catch (SQLException e) {
