@@ -14,7 +14,7 @@
         <nav class="main-nav float-right d-none d-lg-block">
             <ul>
                 <li><a href="/shelter">Home</a></li>
-                <li><a href="#about">About Us</a></li>
+                <li><a href="/shelter">About Us</a></li>
 
                 <%--     <%
                          out.print("<li><a>" + request.getAttribute("user_name") + "</a></li>");
@@ -31,6 +31,7 @@
                     <li><a href="/logOut">Log Out</a></li>
                 </c:if>
             </ul>
+
         </nav>
     </div>
 </header>

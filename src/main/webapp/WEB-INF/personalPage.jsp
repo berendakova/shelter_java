@@ -40,7 +40,7 @@
         <div class="container" style="height: 100%">
 
             <header class="section-header" style="margin-top: 60px">
-                <h3>Our pets</h3>
+                <h3>Your pets</h3>
                 <p>Here you can see our animals, affectionate dogs, beloved cats</p>
             </header>
             <div class="row">

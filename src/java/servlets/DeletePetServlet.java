@@ -26,7 +26,7 @@ public class DeletePetServlet extends HttpServlet {
 
         try {
             petRepositories.deletePet(idPet);
-            resp.sendRedirect("/our_petsф");
+            resp.sendRedirect("/our_pets");
         } catch (SQLException e) {
             e.printStackTrace();
 

@@ -1,15 +1,15 @@
 package entities;
 
 public class Pet {
-    private int id;
-    private String name;
-    private String age;
-    private String img;
-    private String description;
-    private int status;
-    private String sex;
-    private String breed;
-    private String disease;
+        private int id;
+        private String name;
+        private String age;
+        private String img;
+        private String description;
+        private int status;
+        private String sex;
+        private String breed;
+        private String disease;
 
     public Pet(int id, String name, String age,  String description,String img, int status, String sex, String breed, String disease) {
         this.id = id;

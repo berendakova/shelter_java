@@ -39,36 +39,21 @@ public class Registration extends HttpServlet {
         String password = req.getParameter("user_password");
         String password2 = req.getParameter("user_password2");
         String[] roles = req.getParameterValues("listRole");
-        password = DigestUtils.md5Hex(password);
- /*       System.out.println("TEST               TEST");
-        BufferedReader br =
-                new BufferedReader(new InputStreamReader(req.getInputStream()));
-        String json = "";
-        if(br != null){
-            json = br.readLine();
-            System.out.println(json);
+        if(!password.equals(password2)){
+            req.setAttribute("password_ans","password not equals" );
+            getServletContext().getRequestDispatcher("/WEB-INF/reg.jsp").forward(req, resp);
+            return;
         }
-*/
-        /*ObjectMapper mapper = new ObjectMapper();*/
-        /*User user = mapper.readValue(json,User.class);*//*
-        JSONParser jsonParser = new JSONParser();
-        JSONObject jsonObject = (JSONObject) jsonParser.parse(json);
-*/        /*System.out.println(user.getUserName());*/
+        password = DigestUtils.md5Hex(password);
         try {
             UserRolesRepository userRolesRepository = new UserRolesRepository();
             UserRepositories userRepositories = new UserRepositories();
 
             if (userRepositories.getUserByLogin(email) != null) {
+
+                System.out.println(userRepositories.getUserByLogin(email));
                 String answ = "this user is exist";
                 req.setAttribute("existUser", answ);
-                if(!password.equals(password2)){
-                    req.setAttribute("password_ans","password not equals" );
-                }
-                getServletContext().getRequestDispatcher("/WEB-INF/reg.jsp").forward(req, resp);
-                return;
-            }
-            if(!password.equals(password2)){
-                req.setAttribute("password_ans","password not equals" );
                 getServletContext().getRequestDispatcher("/WEB-INF/reg.jsp").forward(req, resp);
                 return;
             }

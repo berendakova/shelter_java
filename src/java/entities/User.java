@@ -11,7 +11,7 @@ private String isSuperuser;
     public User() {
     }
 
-    public User(int idUser, String userName, String userEmail, String userPassword,String isSuperuser) {
+    public User(int     idUser, String userName, String userEmail, String userPassword,String isSuperuser) {
         this.idUser = idUser;
         this.userName = userName;
         this.userEmail = userEmail;

@@ -38,15 +38,24 @@ public class Authentication extends HttpServlet {
         try {
             User userFromDB = userRepositories.getUserByLogin(email);
             if(userFromDB != null){
+
                 System.out.println(userFromDB.getIsSuperuser());
                 String md5password = DigestUtils.md5Hex(password);
+
                 if(userFromDB.getUserPassword().equals(md5password)){
 
                     session.setAttribute("log",true);
                     session.setAttribute("current_user", userFromDB);
                     session.setAttribute("user_name",userFromDB.getUserName());
+                    resp.sendRedirect("/shelter");
+
                 }
-                resp.sendRedirect("/shelter");
+                else{
+                    session.setAttribute("notPas", "not correct password");
+                    session.setAttribute("log",false);
+                    resp.sendRedirect("/auth");
+                }
+
             }
             else{
                 session.setAttribute("log",false);

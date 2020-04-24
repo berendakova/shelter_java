@@ -77,40 +77,12 @@
     <br>
     <br>
 
-    ${existUser}
-    ${password_ans}
 </fieldset>
 
 
 <button type="submit" id="reg">Sign In</button>
 </form>
 
-<script>
-    $(document).ready(function () {
 
-        $("#reg").click(function () {
-                var user_name = $('#name').val();
-                var user_email = $('#mail').val();
-                var user_password = $('#password1').val();
-                var user_password2 = $('#password2').val();
-                alert("HELLO, " + user_name);
-
-                $.ajax({
-                    type: 'POST',
-                    url: '/reg',
-                    data: {
-                        "user_name": user_name,
-                        "user_email": user_email,
-                        "user_password": user_password,
-                        "user_password2": user_password2
-                    },
-                    success: function (result) {
-                    }
-                });
-            }
-        );
-    })
-
-</script>
 </body>
 </html>

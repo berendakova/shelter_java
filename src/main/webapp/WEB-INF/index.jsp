@@ -1,4 +1,3 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +32,7 @@
 </head>
 
 <body>
-<jsp:include page="header.jsp"/>
+
 
 <section id="intro" class="clearfix">
     <div class="container d-flex h-100">
@@ -87,130 +86,6 @@
 
     </section><!-- #about -->
 
-
-    <!--==========================
-    Our Pets
-    ============================-->
-    <section id="pets" class="section-bg">
-        <div class="container">
-
-            <header class="section-header" style="margin-top: 30px">
-                <h3>Our pets</h3>
-                <p>Here you can see our animals, affectionate dogs, beloved cats</p>
-            </header>
-
-            <div class="row">
-
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="about-img">
-                    <img src="../img/oo_p13.jpg" style="width:27em; height:17em;" alt="">
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-duration="1.4s">
-                    <div class="box">
-                        <h4 class="title"><a href="">Jessy</a></h4>
-                        <p class="description">Jessy was born in 2012, when she was a pappy, one family took her, so she spend all time this them, but some day they left her, now she live with us.
-                        Jessy is kind, she loves children.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px" >
-                    <div class="box">
-                        <img src="../img/oo-p2.jpg" style="width:27em; height:17em;" alt="" >
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.1s" data-wow-duration="1.4s" style="margin-top: 30px">
-                    <div class="box">
-                        <h4 class="title"><a href="">Simka</a></h4>
-                        <p class="description">Meet our beauty Simka. She has a difficult fate - she was found on the street,
-                            with a wounded paw, but now she is completely healthy. Simka is a kind, affectionate, tender cat. She is about 4 years old. All vaccinations are done.</p>
-                    </div>
-                </div>
-
-                <div class="col-md-6 col-lg-6 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s" style="margin-top: 30px">
-                    <div class="box">
-                        <img src="../img/oo-p8.jpg" style="width:27em; height:17em;" alt="">
-                        <br>
-                        <br>
-                    </div>
-                </div>
-                <div class="col-md-3 col-lg-6 wow bounceInUp" data-wow-delay="0.2s" data-wow-duration="1.4s" style="margin-top: 30px" >
-                    <div class="box">
-                        <h4 class="title"><a href="">Nemo</a></h4>
-                        <p class="description">Nemo is our smallest friend. He is only 4 months old, but he is already accustomed to the tray, vaccinated and sterilized. Playful, smart and very beautiful.
-                        </p>
-                        <br>
-                        <br>
-                    </div>
-                </div>
-                <a href="/reg   " class="btn-get-started scrollto">Look at all</a>
-            </div>
-
-        </div>
-    </section><!-- #services -->
-
-    <!--==========================
-      Why Us Section
-    ============================-->
-    <section id="why-us" class="wow fadeIn">
-        <div class="container-fluid">
-
-            <header class="section-header">
-                <h3>How much have we done?</h3>
-                <p style="size: 30px">We are proud to be able to help so many people and animals find each other.</p>
-            </header>
-
-            <div class="row">
-
-                <div class="col-lg-6">
-                    <div class="why-us-img">
-                        <img src="../img/how_____.jpg" alt="" class="img-fluid">
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="why-us-content">
-                        <h3>Love the animal, appreciate it, walk with it, feed it, take care of it, scratch it behind the ear, kiss it on the nose, take care of its health, do not let it freeze
-                            in the autumn evening, do not let it get lost in the winter morning, but let it enjoy its short life - to smell the sea, swim in the sunset light, find out what bugs,
-                            spiders are, give chat with other animals - give him life, give a chance, and then he will become your closest friend that you cannot find among people
-                        </h3>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-        <div class="container">
-            <div class="row counters">
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">274</span>
-                    <p>Cured animals</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">421</span>
-                    <p>Animals at the moment</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">100,364</span>
-                    <p>Collected with money donations</p>
-                </div>
-
-                <div class="col-lg-3 col-6 text-center">
-                    <span data-toggle="counter-up">201</span>
-                    <p>Animals coming home</p>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
 
     <!--==========================
       Call To Action Section

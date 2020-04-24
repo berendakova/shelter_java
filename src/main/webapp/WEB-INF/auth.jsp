@@ -47,6 +47,7 @@
 
         <p><input name="remember" type="radio" value="remember"> remember me</p>
 
+    ${notPas};
 
     </fieldset>
 
